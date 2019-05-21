@@ -1,15 +1,12 @@
 <template>
 <!-- iterate through the meals and pass them to the MealItem -->
-<div>
     <div class="container">
-        <div 
-            v-bind:key="meal.type" 
-            v-for="meal in meals.food" 
-            v-show="meal.type">
-            <MealItem v-bind:meal="meal" />
-        </div>
+            <MealItem
+            v-bind:key="meal.type"
+            v-for="meal in meals.food"
+            v-show="meal.type"
+            v-bind:meal="meal" />
     </div>
-</div>
 
 </template>
 
@@ -27,5 +24,8 @@ export default {
 
 <style scoped>
 
-
+.container {
+  width: 100%;
+  height: auto;
+}
 </style>

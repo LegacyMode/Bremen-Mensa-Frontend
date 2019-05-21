@@ -8,11 +8,12 @@
       v-bind:dayIndex ="dayIndex"
       v-on:dayClicked="dayIndex = $event"
     />
-    <Meals 
-      v-bind:meals="meals[dayIndex]" 
+    <Meals
+      v-bind:meals="meals[dayIndex]"
       v-touch:swipe="swipeHandler"
-      v-bind:filter="filter" 
-    />
+      v-bind:filter="filter"
+      />
+    <Footer></Footer>
   </div>
 </template>
 
@@ -20,6 +21,7 @@
 import Meals from "./components/Meals.vue";
 import MealFilter from "./components/MealFilter.vue";
 import NavBar from "./components/NavBar.vue";
+import Footer from "./components/Footer.vue";
 
 import Vue from 'vue'
 import axios from 'axios'
@@ -35,7 +37,8 @@ export default {
   components: {
     NavBar,
     Meals,
-    MealFilter
+    MealFilter,
+    Footer
   },
   data() {
     return {
@@ -57,35 +60,12 @@ export default {
       } else this.filter = this.filter.concat(type);
     }
   },
-  
+
   // when created fetch the meals from the API
-  created() {  
+  created() {
       axios.get('https://legacymo.de/v2/api/')
           .then(data => this.meals = data.data)
           .catch(err => console.log(err))
-          /* dummy data
-          this.meals = [
-            {
-            "day": "Mittwoch",
-            "date": "20. März",
-            "food": 
-              [
-                {
-                  "type" : "Essen 1",
-                  "meal" : [{"name" : "mega schnitzel", "costs" : "2,35€"}]
-                },
-                {
-                  "type" : "Essen 2",
-                  "meal" : [{"name" : "mega brot", "costs" : "1,35€"}]
-                },
-                {
-                  "type" : "Vegetarische Theke",
-                  "meal" : [{"name" : "mega falafel", "costs" : "3,10€"}]
-                }
-              ]
-            }, 1,2,3,4
-          ]*/
-          
   }
 };
 </script>
@@ -103,6 +83,7 @@ export default {
   padding: 0rem 1rem;
   background: rgb(255, 255, 255);
   max-width: 768px;
+  height: 100%;
   margin: 0 auto;
 }
 
