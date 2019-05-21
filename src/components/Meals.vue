@@ -5,7 +5,7 @@
         <div 
             v-bind:key="meal.type" 
             v-for="meal in meals.food" 
-            v-show="!filter.includes(meal.type)">
+            v-show="meal.type">
             <MealItem v-bind:meal="meal" />
         </div>
     </div>

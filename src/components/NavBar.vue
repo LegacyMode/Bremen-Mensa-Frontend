@@ -1,17 +1,25 @@
 <template>
     <div class="nav" >
-      <p v-on:click="$emit('dayClicked', 0)" :class="{highlight:dayIndex == 0}">{{ meals[0].day }} <br> {{ meals[0].date }}</p>
-      <p v-on:click="$emit('dayClicked', 1)" :class="{highlight:dayIndex == 1}">{{ meals[1].day }} <br> {{ meals[1].date }}</p>
-      <p v-on:click="$emit('dayClicked', 2)" :class="{highlight:dayIndex == 2}">{{ meals[2].day }} <br> {{ meals[2].date }}</p>
-      <p v-on:click="$emit('dayClicked', 3)" :class="{highlight:dayIndex == 3}">{{ meals[3].day }} <br> {{ meals[3].date }}</p>
-      <p v-on:click="$emit('dayClicked', 4)" :class="{highlight:dayIndex == 4}">{{ meals[4].day }} <br> {{ meals[4].date }}</p>
+      <p v-on:click="$emit('dayClicked', 0)" :class="{highlight:dayIndex == 0}">{{ meals[0].day | capitalize}}</p>
+      <p v-on:click="$emit('dayClicked', 1)" :class="{highlight:dayIndex == 1}">{{ meals[1].day | capitalize}}</p>
+      <p v-on:click="$emit('dayClicked', 2)" :class="{highlight:dayIndex == 2}">{{ meals[2].day | capitalize}}</p>
+      <p v-on:click="$emit('dayClicked', 3)" :class="{highlight:dayIndex == 3}">{{ meals[3].day | capitalize}}</p>
+      <p v-on:click="$emit('dayClicked', 4)" :class="{highlight:dayIndex == 4}">{{ meals[4].day | capitalize}}</p>
     </div>
 </template>
 
 <script>
 export default {
     name: "NavBar",
-    props: ["meals", "dayIndex"]
+    props: ["meals", "dayIndex"],
+
+    filters: {
+      capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.substring(0,2 ).toUpperCase()
+    }
+  }
 }
 </script>
 
@@ -19,17 +27,18 @@ export default {
 .nav {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 0 1rem;
+  grid-gap: 0 0rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .nav p{
-  background: #efe;
-  padding: 1rem;
+  font-size: 0.8rem;
+  padding: 0rem 1rem;
   cursor: pointer;
 }
 
 .nav p.highlight {
-  background: #95C11F;
-  color: white;
+  font-weight: 700;
 }
 </style>

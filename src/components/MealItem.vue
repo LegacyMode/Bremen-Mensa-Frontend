@@ -1,8 +1,13 @@
 <template>
     <div class="meal">
             <p class="type">{{ meal.type }}</p>
-            <p class="name">{{ meal.meal[0].name }}</p>
-            <p class="costs">{{ meal.meal[0].costs }}</p>
+            <span class="entry"
+                v-bind:key="m.name"
+                v-for="m in meal.meal">
+                
+                <p class="name">{{ m.name }}</p>
+                <p v-show="m.costs" class="costs">{{ m.costs }}</p>
+            </span>    
     </div>
 </template>
 
@@ -15,29 +20,47 @@ export default {
 
 <style scoped>
 .meal {
-    background: #efe;
-    margin: 1rem 0;
-    padding: 0;
-    display: grid;
+    margin: 0rem 0rem;
+    padding: 1.5rem 0rem;
+    display:block;
+    float: left;
     grid-template-columns: 1fr;
     align-items: center;
-    box-shadow: 5px 5px 2.5px grey;
+    width: 100%;
+    border-bottom: solid black 1px;
 }
 
 .meal p {
-    display: inline;
     padding: 0;
-    margin: 0.5rem 0;
+    margin: 0;
+    float: left;
+    text-align: left
 }
 
 .meal p.name {
-    font-weight: bold;
+    font-size: 1rem;
+    width: 80%;
+    flex-grow: 1;
+}
+
+.meal .entry {
+    width: 100%;
+    padding: 1rem 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .meal p.type {
-    background: rgb(255, 194, 103);
+    font-size: 1rem;
+    font-weight: bold;
     margin: 0;
-    padding: 0.5rem 0;
+}
+
+.meal p.costs {
+    font-size: 1rem;
+    margin-left: 2rem;
+    text-align: right;
 }
 
 </style>

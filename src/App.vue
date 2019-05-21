@@ -1,18 +1,12 @@
 <template>
   <div id="app">
     <div class="header">
-      <img src="./assets/UniBremen.png" >
       <h1>Mensa Speiseplan</h1>
     </div>
     <NavBar
       v-bind:meals="meals"
       v-bind:dayIndex ="dayIndex"
       v-on:dayClicked="dayIndex = $event"
-    />
-    <MealFilter
-      v-bind:meals="meals[dayIndex]"
-      v-bind:filter="filter"
-      v-on:typeClicked="toggleFilter"
     />
     <Meals 
       v-bind:meals="meals[dayIndex]" 
@@ -97,41 +91,33 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,600,700&display=swap');
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 20px;
-  padding: 2rem 2rem;
-  background: rgb(186, 226, 186);
+  padding: 0rem 1rem;
+  background: rgb(255, 255, 255);
+  max-width: 768px;
+  margin: 0 auto;
 }
 
 .header {
   display: grid;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.h1 {
+  margin: 0;
 }
 
 .header img {
   width: 30%;
   height: auto;
-}
-
-@media screen and (max-width: 719px) {
-  .nav p {
-    display: none;
-  }
-  
-  .nav p.highlight {
-    display: block;
-    background:#efe;
-    color: #2c3e50;
-    font-size: 1.2rem;
-  }
-
-  .nav {
-    grid-template-columns: 1fr;
-  }
 }
 </style>
