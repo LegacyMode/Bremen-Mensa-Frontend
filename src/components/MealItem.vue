@@ -23,7 +23,6 @@ export default {
     margin: 0rem 0rem;
     padding: 1.5rem 0rem;
     display:block;
-    float: left;
     grid-template-columns: 1fr;
     align-items: center;
     width: 100%;

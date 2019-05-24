@@ -17,10 +17,11 @@ export default {
 
 <style scoped>
   .footer {
-    clear: both;
+    margin: 1rem 0;
+    margin-bottom: 30px; 
+    text-align: right;
   }
   .footer a {
     color: black;
-    float:right;
   }
 </style>
