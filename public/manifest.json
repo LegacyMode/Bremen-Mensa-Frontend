@@ -1,6 +1,6 @@
 {
-  "name": "bremen-mensa-frontend-pwa",
-  "short_name": "bremen-mensa-frontend-pwa",
+  "name": "Mensa Bremen FoodPlan",
+  "short_name": "HBPLAN",
   "icons": [
     {
       "src": "./img/icons/icon_192.png",
