@@ -1,0 +1,15 @@
+{
+  "short_name": "Mensa Bremen Foodplan",
+  "name": "MBPLAN",
+  "icons": [
+    {
+      "src":"public/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fff",
+  "theme_color": "#000",
+  "display": "standalone"
+}
