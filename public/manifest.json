@@ -1,9 +1,9 @@
 {
-  "short_name": "Mensa Bremen Foodplan",
-  "name": "MBPLAN",
+  "short_name": "HBPLAN",
+  "name": "Mensa Bremen Foodplan",
   "icons": [
     {
-      "src":"public/icon.png",
+      "src":"images/icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
