@@ -1,13 +1,13 @@
 <template>
     <div class="filter">
-        <p 
-            @click="showFilter = !showFilter" 
-            class="toggle" 
+        <p
+            @click="showFilter = !showFilter"
+            class="toggle"
             :class="{highlight:showFilter}"><i class="fas fa-filter fa-2x"></i></p>
         <transition name="fade">
           <div class="filterList" v-if="showFilter">
-              <p 
-                  v-bind:key="meal.type" 
+              <p
+                  v-bind:key="meal.type"
                   v-for="meal in meals.food"
                   v-on:click="$emit('typeClicked', meal.type)"
                   :class="{highlight:!filter.includes(meal.type)}" >
@@ -20,14 +20,14 @@
 
 <script>
 export default {
-    name: "MealFilter",
-    props: ["filter", "meals"],
-    data() {
-        return{
-            showFilter: false
-        }
+  name: "MealFilter",
+  props: ["filter", "meals"],
+  data() {
+    return {
+      showFilter: false
     }
-}
+  }
+};
 </script>
 
 <style scoped>
@@ -54,7 +54,7 @@ export default {
 .filterList {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center; 
+  justify-items: center;
   margin: 1rem 0;
   overflow: hidden;
 }
