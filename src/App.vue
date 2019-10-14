@@ -8,11 +8,14 @@
       v-bind:dayIndex ="dayIndex"
       v-on:dayClicked="dayIndex = $event"
     />
-    <Meals
-      v-bind:meals="meals[dayIndex]"
-      v-touch:swipe="swipeHandler"
-      v-bind:filter="filter"
+    <transition :name="`slide-${transition}`" mode="out-in">
+      <Meals
+        :key="dayIndex"
+        v-bind:meals="meals[dayIndex]"
+        v-touch:swipe="swipeHandler"
+        v-bind:filter="filter"
       />
+    </transition>
     <Footer></Footer>
   </div>
 </template>
@@ -46,7 +49,8 @@ export default {
       meals: [0,1,2,3,4],
       showFilter: false,
       filter: [],
-      dayIndex: 0
+      dayIndex: 0,
+      transition: ""
     }
   },
   methods :{
@@ -60,7 +64,11 @@ export default {
       } else this.filter = this.filter.concat(type);
     }
   },
-
+  watch: {
+    dayIndex(newValue, oldValue) {
+      this.transition = oldValue < newValue ? "right" : "left";
+    }
+  },
   // when created fetch the meals from the API
   created() {
       axios.get('https://legacymo.de/v2/api/')
@@ -72,6 +80,11 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,600,700&display=swap');
+@import url('./style/slide.css');
+
+body {
+  overflow-x: hidden;
+}
 
 #app {
   font-family: 'IBM Plex Mono', monospace;
@@ -85,6 +98,12 @@ export default {
   max-width: 768px;
   height: 100%;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) { 
+  #app {
+    overflow-x: hidden;
+  }
 }
 
 .header {
