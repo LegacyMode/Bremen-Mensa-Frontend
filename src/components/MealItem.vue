@@ -3,7 +3,7 @@
     <p class="type">{{ meal.type }}</p>
     <span class="entry" v-bind:key="m.name" v-for="m in meal.meal">
       <p class="name">{{ m.name }}</p>
-      <p v-show="m.costs" class="costs">{{ m.costs }}</p>
+      <p v-show="m.costs" class="costs">{{ m.costs.a }} {{ m.costs.b }}</p>
     </span>
   </div>
 </template>
