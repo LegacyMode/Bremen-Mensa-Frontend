@@ -1,21 +1,25 @@
 <template>
-    <div class="filter">
+  <div class="filter">
+    <p
+      @click="showFilter = !showFilter"
+      class="toggle"
+      :class="{ highlight: showFilter }"
+    >
+      <i class="fas fa-filter fa-2x"></i>
+    </p>
+    <transition name="fade">
+      <div class="filterList" v-if="showFilter">
         <p
-            @click="showFilter = !showFilter"
-            class="toggle"
-            :class="{highlight:showFilter}"><i class="fas fa-filter fa-2x"></i></p>
-        <transition name="fade">
-          <div class="filterList" v-if="showFilter">
-              <p
-                  v-bind:key="meal.type"
-                  v-for="meal in meals.food"
-                  v-on:click="$emit('typeClicked', meal.type)"
-                  :class="{highlight:!filter.includes(meal.type)}" >
-                  {{ meal.type }}
-              </p>
-          </div>
-        </transition>
-    </div>
+          v-bind:key="meal.type"
+          v-for="meal in meals.food"
+          v-on:click="$emit('typeClicked', meal.type)"
+          :class="{ highlight: !filter.includes(meal.type) }"
+        >
+          {{ meal.type }}
+        </p>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -25,7 +29,7 @@ export default {
   data() {
     return {
       showFilter: false
-    }
+    };
   }
 };
 </script>
@@ -34,7 +38,7 @@ export default {
 /* toggle */
 
 .toggle {
-  display:inline-block;
+  display: inline-block;
   font-size: 14px;
   padding: 1rem;
   width: 30px;
@@ -45,7 +49,7 @@ export default {
 }
 
 .toggle.highlight {
-  background: #95C11F;
+  background: #95c11f;
   color: white;
 }
 
@@ -67,24 +71,26 @@ export default {
   background: #efe;
 }
 
-.filterList p.highlight{
-  background: #95C11F;
+.filterList p.highlight {
+  background: #95c11f;
   color: white;
 }
 
 /* transitions */
 
-.fade-enter-active, .fade-leave-active {
-  transition: all .5s ease;
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
 }
 
-.fade-leave, .fade-enter-to {
+.fade-leave,
+.fade-enter-to {
   opacity: 1;
 }
 
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
   /* transform: translateY(-20px); */
 }
-
 </style>

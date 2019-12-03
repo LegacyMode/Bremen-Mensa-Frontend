@@ -1,7 +1,11 @@
 <template>
   <div class="footer">
     <a href="https://github.com/LegacyMode/Bremen-Mensa-Frontend">
-      <img class="icon" src="../assets/GitHub-Mark-32px.png" alt="Github Logo"/>
+      <img
+        class="icon"
+        src="../assets/GitHub-Mark-32px.png"
+        alt="Github Logo"
+      />
     </a>
     |
     <a href="https://legacymo.de">legacymo.de</a>
@@ -9,7 +13,6 @@
 </template>
 
 <script>
-
 export default {
   name: "Footer",
   components: {},

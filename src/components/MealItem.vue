@@ -1,20 +1,17 @@
 <template>
   <div class="meal">
     <p class="type">{{ meal.type }}</p>
-      <span class="entry"
-            v-bind:key="m.name"
-            v-for="m in meal.meal">
-
-        <p class="name">{{ m.name }}</p>
-        <p v-show="m.costs" class="costs">{{ m.costs }}</p>
-      </span>
+    <span class="entry" v-bind:key="m.name" v-for="m in meal.meal">
+      <p class="name">{{ m.name }}</p>
+      <p v-show="m.costs" class="costs">{{ m.costs }}</p>
+    </span>
   </div>
 </template>
 
 <script>
 export default {
   name: "MealItem",
-  props: ["meal"],
+  props: ["meal"]
 };
 </script>
 
@@ -22,7 +19,7 @@ export default {
 .meal {
   margin: 0rem 0rem;
   padding: 1.5rem 0rem;
-  display:block;
+  display: block;
   grid-template-columns: 1fr;
   align-items: center;
   width: 100%;
@@ -33,7 +30,7 @@ export default {
   padding: 0;
   margin: 0;
   float: left;
-  text-align: left
+  text-align: left;
 }
 
 .meal p.name {

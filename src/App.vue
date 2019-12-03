@@ -24,6 +24,7 @@
 import Meals from "./components/Meals.vue";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
+import API_URL from "./config";
 
 import Vue from "vue";
 import axios from "axios";
@@ -70,7 +71,7 @@ export default {
   // when created fetch the meals from the API
   created() {
     axios
-      .get("https://legacymo.de/v2/api/")
+      .get(API_URL)
       .then(data => (this.meals = data.data))
       .catch(err => console.log(err));
   }
