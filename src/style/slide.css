@@ -14,7 +14,7 @@
 
 .slide-left-enter-active,
 .slide-left-leave-active {
-  transition: transform 0.3s;
+  transition: transform 0.15s;
 }
 
 .slide-left-enter,
