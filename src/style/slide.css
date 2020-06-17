@@ -1,6 +1,6 @@
 .slide-right-enter-active,
 .slide-right-leave-active {
-  transition: transform 0.3s;
+  transition: transform 0.15s;
 }
 
 .slide-right-enter,
