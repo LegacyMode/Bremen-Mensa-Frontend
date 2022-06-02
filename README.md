@@ -1,5 +1,7 @@
 # bremen-mensa-frontend-pwa
 
+Frontend for mensabremen.de. The API is found here: https://github.com/StevenKowalzik/Mensa-Bremen-API
+
 ## Project setup
 ```
 npm install
