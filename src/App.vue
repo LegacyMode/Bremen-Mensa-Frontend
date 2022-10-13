@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1>Mensa Speiseplan</h1>
+      <h1>Mensa Uni Bremen Speiseplan</h1>
     </div>
     <NavBar
       v-bind:meals="meals"
