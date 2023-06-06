@@ -1,1 +1,1 @@
-export default "https://www.api.mensa.legacymo.de/";
+export default "https://mensa-bremen-api.fly.dev/";
