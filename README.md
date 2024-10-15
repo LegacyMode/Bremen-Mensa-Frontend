@@ -2,6 +2,8 @@
 
 Frontend for mensabremen.de. The API is found here: https://github.com/StevenKowalzik/Mensa-Bremen-API
 
+*Since I'm not actively studying at the University of Bremen anymore feel free to message me about helping or maintaining this project.*
+
 ## Project setup
 ```
 npm install
